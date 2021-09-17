@@ -5,6 +5,8 @@ import com.example.book.tool.ReadFile;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 public class BookController {
 
@@ -22,9 +24,9 @@ public class BookController {
 
     @RequestMapping("book")
     @ResponseBody
-    public String book(@RequestParam String name) {
+    public List<Object> book(@RequestParam String name) {
         ReadFile readFile = new ReadFile();
-        String str = readFile.readFile(name);
+        List<Object> str = readFile.readFile(name);
         return str;
     }
 
